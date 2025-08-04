@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ email_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f4;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <!-- Header -->
+        <tr>
+            <td style="background-color: #34495e; padding: 20px; text-align: center; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                <h1 style="color: #ffffff; margin: 0; font-size: 24px;">{{ email_title }}</h1>
+            </td>
+        </tr>
+        <!-- Body -->
+        <tr>
+            <td style="padding: 30px; color: #333333;">
+                <h2 style="font-size: 20px; margin: 0 0 20px;">Hello {{ user_name|default:"Valued Customer" }},</h2>
+                <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                    {{ main_message|safe }}
+                </p>
+                <!-- Conditional Content for User Verification with OTP -->
+                {% if user_verification %}
+                <p style="font-size: 16px; line-height: 1.6; margin: 20px 0;">
+                    Your One-Time Password (OTP) for verifying your account is: <strong>{{ otp }}</strong>
+                </p>
+                <p style="font-size: 16px; line-height: 1.6; margin: 20px 0;">
+                    Please enter this OTP on the account verification page to activate your account. This OTP is valid for a limited time.
+                </p>
+                {% endif %}
+                <!-- Conditional Content for Forgot Password with OTP -->
+                {% if reset_password %}
+                <p style="font-size: 16px; line-height: 1.6; margin: 20px 0;">
+                    Your One-Time Password (OTP) for resetting your password is: <strong>{{ otp }}</strong>
+                </p>
+                <p style="font-size: 16px; line-height: 1.6; margin: 20px 0;">
+                    Please enter this OTP on the password reset page to proceed. This OTP is valid for a limited time.
+                </p>
+                {% endif %}
+                <!-- General Closing Message -->
+                <p style="font-size: 16px; line-height: 1.6; margin: 20px 0;">
+                    {{ closing_message|default:"Thank you for choosing our services." }}
+                </p>
+                <p style="font-size: 16px; line-height: 1.6; margin: 0;">
+                    {{ signature_message|default:"Best regards,<br>The Team" }}
+                </p>
+            </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+            <td style="background-color: #34495e; padding: 20px; text-align: center; color: #ffffff; font-size: 14px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                <p style="margin: 0;">{{ company_name|default:"Our Company" }} © {{ current_year|default:"2025" }} | <a href="{{ website_url|default:'#'}}"  style="color: #3498db; text-decoration: none;">Visit our website</a></p>
+                <p style="margin: 10px 0 0;">{{ company_address|default:"Your Address Here" }}</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
