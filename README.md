@@ -56,16 +56,11 @@ pip install -r requirements.txt
 
 ### 4️⃣ Configure Environment Variables
 
-```bash
-cp .env.example .env
-```
-
 Update your `.env` file with appropriate values:
 
 ```env
 SECRET_KEY=your_secret_key
 DEBUG=True
-ALLOWED_HOSTS=127.0.0.1,localhost
 
 # Email Configuration
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
