@@ -112,7 +112,7 @@ Visit: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 * JWT Authentication (`djangorestframework-simplejwt`)
 * PostgreSQL / MySQL Compatible
 * SMTP Email Service
-* Python Decouple
+* Python dotenv
 
 ---
 
