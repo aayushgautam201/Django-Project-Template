@@ -11,3 +11,4 @@ python-dotenv
 PyJWT
 sqlparse
 tzdata
+python-decouple
