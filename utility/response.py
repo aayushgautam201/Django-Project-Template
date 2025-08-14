@@ -10,7 +10,17 @@ def api_response(
     status_code=http_status.HTTP_200_OK
 ):
     """
-    Generic response formatter for Django REST Framework.
+    Generic response formatter for Django REST Framework APIs.
+
+    Args:
+        success (bool): Indicates if the request was successful.
+        message (str): Human-readable message for the response.
+        data (any): Response payload (can be dict, list, serializer.data, etc.).
+        errors (any): Error details if the request failed.
+        status_code (int): HTTP status code for the response.
+
+    Returns:
+        Response: DRF Response object with consistent structure.
     """
 
     response_body = {

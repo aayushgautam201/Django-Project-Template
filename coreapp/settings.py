@@ -159,7 +159,6 @@ REST_FRAMEWORK = {
 }
 
 # email configuration
-# email configuration
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
